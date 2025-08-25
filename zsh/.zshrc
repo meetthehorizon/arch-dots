@@ -27,6 +27,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# aliases
+alias clr="clear; fastfetch;"
+
 # antidote setup
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
@@ -36,3 +39,4 @@ bindkey '^E' autosuggest-execute
 
 # starship prompt init
 eval "$(starship init zsh)"
+clr
