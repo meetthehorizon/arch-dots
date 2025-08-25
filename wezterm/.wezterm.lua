@@ -7,6 +7,7 @@ return {
 	font = wezterm.font_with_fallback({
 		"FantasqueSansM Nerd Font",
 		"Noto Color Emoji",
+		"Symbols Nerd Font Mono",
 	}),
 	font_size = 12.0,
 
