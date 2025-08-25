@@ -6,6 +6,5 @@ paru -Sy zsh-antidote
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-Make sure you follow the documentation of hyprland first to install core dependencies
-
+Make sure you follow the documentation of hyprland first
 Then use `stow <dir-name>` to update config files
