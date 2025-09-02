@@ -14,6 +14,9 @@ setopt hist_reduce_blanks      # remove superfluous blanks
 setopt hist_verify             # show before executing history expansion
 setopt extended_history        # record timestamp of each command
 
+bindkey '^R' history-incremental-search-backward
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Changes to the given directory after running yazi with the given arguments.
 #
 # This is a wrapper around yazi that allows it to change directories. It
@@ -26,8 +29,15 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+# env
+export EDITOR=nvim
+export VISUAL=nvim
+export PATH="$HOME/.local/bin:$PATH"
 
 # aliases
+alias vim="nvim"
+alias viz="vim ~/.zshrc"
+alias vin="vim ~/.config/nvim/init.lua"
 alias clr="clear; fastfetch;"
 
 # antidote setup
@@ -40,3 +50,4 @@ bindkey '^E' autosuggest-execute
 # starship prompt init
 eval "$(starship init zsh)"
 clr
+[[ -f ~/.ssh/agent.env ]] && source ~/.ssh/agent.env
