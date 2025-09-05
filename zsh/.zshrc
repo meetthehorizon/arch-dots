@@ -51,3 +51,5 @@ bindkey '^E' autosuggest-execute
 eval "$(starship init zsh)"
 clr
 [[ -f ~/.ssh/agent.env ]] && source ~/.ssh/agent.env
+
+export PATH=$PATH:/home/conart/.spicetify

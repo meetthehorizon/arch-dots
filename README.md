@@ -2,7 +2,7 @@ These are my dotfiles for Arch Linux + Hyprland setup. To use these install the 
 
 ```bash
 sudo pacman -Sy hyprland waybar rofi wezterm stow yazi fastfetch
-paru -Sy zsh-antidote
+paru -Sy zsh-antidote spicetify-cli
 curl -sS https://starship.rs/install.sh | sh
 ```
 
