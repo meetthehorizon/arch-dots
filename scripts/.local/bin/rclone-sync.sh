@@ -1,17 +1,19 @@
 #!/bin/bash
+set -euo pipefail
 
-# Log file
-LOGFILE="$HOME/rclone-sync.log"
-DATE=$(date '+%Y-%m-%d %H:%M:%S')
+LOG_DIR="$HOME/.local/share/rclone"
+LOG_FILE="$LOG_DIR/bisync.log"
 
-echo "=== Rclone push started at $DATE ===" >> "$LOGFILE"
+mkdir -p "$LOG_DIR"
 
-# Pictures
-rclone sync "$HOME/Pictures" onedrive:Pictures --verbose --transfers=4 --checkers=8 >> "$LOGFILE" 2>&1
+# Run bisync
+/usr/bin/rclone bisync "$HOME/Pictures" "onedrive:Pictures" \
+    --create-empty-src-dirs \
+    --verbose \
+    --log-file="$LOG_FILE"
 
-# Documents/conart
-rclone sync "$HOME/Documents/conart" onedrive:Documents/conart --verbose --transfers=4 --checkers=8 >> "$LOGFILE" 2>&1
 
-echo "=== Rclone push finished at $(date '+%Y-%m-%d %H:%M:%S') ===" >> "$LOGFILE"
-echo "" >> "$LOGFILE"
-
+/usr/bin/rclone bisync "$HOME/Documents/conart" "onedrive:Documents/conart" \
+    --create-empty-src-dirs \
+    --verbose \
+    --log-file="$LOG_FILE"
